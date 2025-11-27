@@ -55,8 +55,10 @@ class RegistrationController extends Controller
             return response()->json([
                 'status'  => true,
                 'message' => 'Registration completed successfully.',
-                'data'    => new UserResource($user),
-                'token'   => $token,
+                'data'    =>  [
+                    'user' => new UserResource($user),
+                    'token'   => $token,
+                ]
             ], 201);
 
         } catch (Exception $e) {
